@@ -1,0 +1,11 @@
+<nav>
+  <ol class="flex justify-between">
+    {% set href = pagination.href.previous %}
+    {% set text = '&lt; Previous' %}
+    {% include 'partials/pagination/_nav_item.njk' %}
+
+    {% set href = pagination.href.next %}
+    {% set text = 'Next &gt;' %}
+    {% include 'partials/pagination/_nav_item.njk' %}
+  </ol>
+</nav>

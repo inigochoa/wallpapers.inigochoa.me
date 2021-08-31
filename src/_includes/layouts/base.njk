@@ -1,0 +1,69 @@
+{% set assetsDir = '/assets/' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% metagen
+      title=meta.title,
+      desc=meta.description,
+      url="https://wallpapers.inigochoa.me" ~ page.url|url,
+      twitterHandle="@inigochoa"
+    %}
+    <link
+      href="https://fonts.googleapis.com"
+      rel="preconnect"
+    />
+    <link
+      crossorigin
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ assetsDir }}css/style.css?{% version %}"
+      rel="stylesheet"
+    />
+    <link
+      href="/humans.txt?{% version %}"
+      rel="author"
+      type="text/plain"
+    />
+    <link
+      href="{{ assetsDir }}images/favicon.ico?{% version %}"
+      rel="icon"
+    />
+    <link
+      href="{{ assetsDir }}images/favicon.svg?{% version %}"
+      rel="icon"
+      type="image/svg+xml"
+    />
+    <link
+      href="{{ assetsDir }}images/apple-touch-icon.png?{% version %}"
+      rel="apple-touch-icon"
+    />
+    <link
+      href="/my.webmanifest"
+      rel="manifest"
+    />
+    <meta
+      content="#000000"
+      name="theme-color"
+    />
+  </head>
+  <body class="container debug-screens font-sans max-w-5xl min-h-screen px-6">
+    {% include 'partials/_header.njk' %}
+
+    <main class="my-12">
+      {% block content %}
+        <section class="prose lg:prose-lg">
+          {{ content|safe }}
+        </section>
+      {% endblock %}
+    </main>
+
+    {% include 'partials/_footer.njk' %}
+  </body>
+</html>

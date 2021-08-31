@@ -1,0 +1,16 @@
+<ul class="auto-rows-fr gap-4 grid grid-cols-1 mb-12 sm:grid-cols-2 lg:grid-cols-3">
+  {% for item in pagination.items %}
+    <li class="shadow-xl">
+      <a
+        class="block h-full relative"
+        href="{{ item.original }}"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Open original {{ item.title }}"
+      >
+        {% image item.src, item.alt %}
+        <p class="absolute bg-primary bottom-0 px-2 py-1 right-0 text-right text-xs text-white">{{ item.title }}</p>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

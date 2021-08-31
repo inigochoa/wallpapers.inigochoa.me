@@ -1,0 +1,9 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {{ super() }}
+
+  {% include 'partials/gallery/_list.njk' %}
+
+  {% include 'partials/pagination/_nav.njk' %}
+{% endblock %}

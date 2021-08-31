@@ -1,0 +1,8 @@
+<li>
+  {% if href %}
+    <a
+      class="border-primary border text-primary rounded px-2 py-1 hover:text-white hover:bg-primary"
+      href="{{ href }}"
+    >{{ text | safe }}</a>
+  {% endif %}
+</li>

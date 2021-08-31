@@ -1,0 +1,54 @@
+{
+  "name": "wallpaper-gallery",
+  "version": "1.0.0",
+  "description": "A simple wallpaper gallery",
+  "author": {
+    "name": "Iñigo Ochoa",
+    "email": "contact@inigochoa.me",
+    "url": "https://inigochoa.me/"
+  },
+  "repository": "https://github.com/inigochoa/wallpaper-gallery",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-img": "^0.10.0",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
+    "@tailwindcss/jit": "^0.1.18",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.3.2",
+    "cssnano": "^5.0.8",
+    "eleventy-plugin-metagen": "^1.4.0",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "markdown-it": "^12.2.0",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-for-inline": "^0.1.1",
+    "markdownlint-cli2": "^0.2.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-nested": "^5.0.6",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^2.2.7",
+    "tailwindcss-debug-screens": "^2.1.0"
+  },
+  "scripts": {
+    "clean": "rimraf _site",
+    "dev": "npm-run-all clean --parallel dev:* --print-label",
+    "dev:twnd": "postcss src/_assets/css/tailwind.pcss -o _site/assets/css/style.css --watch",
+    "dev:11ty": "NODE_ENV=development eleventy --serve --quiet",
+    "git:authors": "echo '# Authors\n' > AUTHORS.md && git log --raw | grep '^Author: ' | sort | uniq | cut -d ' ' -f2- | sed 's/^/- /' >> AUTHORS.md",
+    "lint": "npm-run-all --parallel lint:* --print-label",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules'",
+    "prod": "npm-run-all clean prod:* --print-label",
+    "prod:11ty": "NODE_ENV=production eleventy --quiet",
+    "prod:twnd": "postcss src/_assets/css/tailwind.pcss -o _site/assets/css/style.css --env production"
+  },
+  "dependencies": {
+    "postcss-import": "^14.0.2"
+  }
+}

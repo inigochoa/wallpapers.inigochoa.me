@@ -1,0 +1,5 @@
+[submodule "src/_wallpapers"]
+	path = src/_wallpapers
+	url = https://github.com/inigochoa/wallpapers
+	ignore = dirty
+	branch = main

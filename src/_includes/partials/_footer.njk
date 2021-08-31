@@ -1,0 +1,19 @@
+<footer class="border-gray-300 border-t flex flex-col items-center mb-12 pt-6">
+  <p class="mb-6 mt-5">&copy; {% currentYear %} Iñigo Ochoa. Built with <a
+    class="hover:underline"
+    href="https://www.11ty.dev/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >Eleventy</a>.</p>
+
+  <ul class="flex flex-wrap items-center justify-evenly">
+    {% for item in collections.legalPages %}
+      <li class="my-2">
+        <a
+          class="font-light p-1 md:px-4 md:py-3 hover:underline"
+          href="{{ item.url|url }}"
+        >{{ item.data.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</footer>
