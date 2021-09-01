@@ -42,6 +42,7 @@
     "dev:twnd": "postcss src/_assets/css/tailwind.pcss -o _site/assets/css/style.css --watch",
     "dev:11ty": "NODE_ENV=development eleventy --serve --quiet",
     "git:authors": "echo '# Authors\n' > AUTHORS.md && git log --raw | grep '^Author: ' | sort | uniq | cut -d ' ' -f2- | sed 's/^/- /' >> AUTHORS.md",
+    "git:sub": "git submodule update --remote",
     "lint": "npm-run-all --parallel lint:* --print-label",
     "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules'",
     "prod": "npm-run-all clean prod:* --print-label",
