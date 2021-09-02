@@ -1,8 +1,9 @@
 <li>
   {% if href %}
     <a
-      class="border-primary border text-primary rounded px-2 py-1 hover:text-white hover:bg-primary"
+      class="btn btn-primary"
       href="{{ href }}"
+      title="{{ title }}"
     >{{ text | safe }}</a>
   {% endif %}
 </li>

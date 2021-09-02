@@ -2,10 +2,12 @@
   <ol class="flex justify-between">
     {% set href = pagination.href.previous %}
     {% set text = '&lt; Previous' %}
+    {% set title = 'Previous page' %}
     {% include 'partials/pagination/_nav_item.njk' %}
 
     {% set href = pagination.href.next %}
     {% set text = 'Next &gt;' %}
+    {% set title = 'Next page' %}
     {% include 'partials/pagination/_nav_item.njk' %}
   </ol>
 </nav>
