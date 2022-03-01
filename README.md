@@ -87,6 +87,7 @@ yarn prod
 - [Tailwind CSS]
 - [humans.txt]
 - [Contributor Covenant]
+- [Microanalytics]
 
 ## Contributing
 
@@ -116,3 +117,4 @@ details.
 [Tailwind CSS]: https://tailwindcss.com/
 [humans.txt]: https://humanstxt.org/
 [Contributor Covenant]: https://www.contributor-covenant.org/
+[Microanalytics]: https://microanalytics.io/
