@@ -1,0 +1,50 @@
+---
+import type Wallpaper from '../../models/Wallpaper'
+import { Image } from 'astro:assets'
+
+const { wallpapers } = Astro.props
+---
+
+<div class="absolute bottom-12 left-0 right-0 mx-auto w-full px-4 sm:bottom-16 z-10">
+  <div
+    class="mx-auto flex max-w-3xl gap-1.5 overflow-x-auto rounded-md bg-primary/20 p-2 backdrop-blur-sm opacity-40 transition-opacity duration-300 hover:opacity-100 hover:bg-primary/40 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent"
+    id="gallery"
+  >
+    {wallpapers.map((wallpaper: Wallpaper, index: Number) => (
+      <div class="relative">
+        <div class="relative h-12 w-24 flex-shrink-0 cursor-pointer overflow-hidden rounded transition-all opacity-70 hover:opacity-100">
+          <Image
+            alt={wallpaper.getAlt()}
+            class={`cursor-pointer h-12 object-cover select-none thumbnail-image w-24 ${index === 0 ? "active" : ""}`}
+            data-alt={wallpaper.getAlt()}
+            data-author={wallpaper.author}
+            data-index={index}
+            data-name={wallpaper.getName()}
+            data-src={wallpaper.getURL()}
+            height={96}
+            src={wallpaper.getURL()}
+            title={wallpaper.getTitle()}
+            width={96}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @reference '../../styles/global.css'
+
+  #gallery {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  #gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .active {
+    @apply border-b border-white;
+  }
+</style>

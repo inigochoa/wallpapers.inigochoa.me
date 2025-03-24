@@ -1,7 +1,7 @@
 {
-  "name": "wallpaper-gallery",
+  "name": "wallpapers.inigochoa.me",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,6 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.4"
+    "@astrojs/mdx": "^4.2.1",
+    "@astrojs/sitemap": "^3.3.0",
+    "@tailwindcss/vite": "^4.0.15",
+    "astro": "^5.5.4",
+    "astro-robots-txt": "^1.0.0",
+    "astro-seo": "^0.8.4",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
   }
 }

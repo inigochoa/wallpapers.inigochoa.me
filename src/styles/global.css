@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-primary: #af0d11;
+}
+
+:focus-visible {
+  @apply outline-dashed outline-2 outline-offset-4 outline-primary;
+}

@@ -1,0 +1,33 @@
+---
+import FooterLink from './FooterLink.astro'
+import site from '../data/site'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="absolute bottom-0 left-0 right-0 z-10 w-full bg-primary/40 px-4 py-2 text-center text-xs text-gray-300 backdrop-blur-sm">
+  <div class="mx-auto max-w-3xl">
+    <div class="flex flex-col items-center justify-between space-y-1 sm:flex-row sm:space-y-0">
+      <div>
+        © {year} {site.chef.name}. All rights reserved.
+      </div>
+      <div class="flex space-x-4">
+        <FooterLink
+          href="/legal-notice"
+          target="_self"
+          text="Legal notice"
+        />
+        <FooterLink
+          href="/licenses"
+          target="_blank"
+          text="Licenses"
+        />
+        <FooterLink
+          href={site.repository.base}
+          target="_blank"
+          text="Repository"
+        />
+      </div>
+    </div>
+  </div>
+</footer>

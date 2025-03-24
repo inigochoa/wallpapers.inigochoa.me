@@ -1,48 +1,66 @@
-# Astro Starter Kit: Basics
+# wallpapers.inigochoa.me
 
-```sh
-pnpm create astro@latest -- --template basics
+## Getting Started
+
+These instructions will give you a copy of the project up and running on your
+local machine for development and testing purposes. See deployment for notes on
+deploying the project on a live system.
+
+### Installing
+
+A step by step series of examples that tell you how to get a development
+environment running.
+
+1. Install dependencies
+
+    ```console
+    npm install
+    pnpm install
+    ```
+
+2. Start the development environment
+
+    ```console
+    npm run dev
+    pnpm run dev
+    ```
+
+## Deployment
+
+Generate a production ready static site by typing:
+
+```console
+npm run build
+pnpm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Built with
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Astro] with markdown-it
+- [Tailwind CSS]
+- [humans.txt]
+- [Contributor Covenant]
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Contributing
 
-## 🚀 Project Structure
+Please read [CONTRIBUTING.md] for details on our code of conduct, and process
+for submitting pull requests to us.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Versioning
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+We use [Semantic Versioning] for versioning. For the versions available, see the
+[tags on this repository].
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## License
 
-## 🧞 Commands
+This project is licensed under the MIT License - see the [LICENSE.md] file for
+details.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[CONTRIBUTING.md]: https://github.com/inigochoa/wallpapers.inigochoa.me/blob/main/CONTRIBUTING.md
+[Semantic Versioning]: http://semver.org/
+[tags on this repository]: https://github.com/inigochoa/wallpapers.inigochoa.me/tags
+[LICENSE.md]: https://github.com/inigochoa/wallpapers.inigochoa.me/blob/main/LICENSE.md
+[Astro]: https://astro.build/
+[Tailwind CSS]: https://tailwindcss.com/
+[humans.txt]: https://humanstxt.org/
+[Contributor Covenant]: https://www.contributor-covenant.org/

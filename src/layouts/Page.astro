@@ -1,0 +1,13 @@
+---
+import Layout from './Layout.astro'
+
+const { frontmatter } = Astro.props
+---
+<Layout title={frontmatter.title}>
+  <main class="mb-8 mt-12 relative">
+    <article class="container mx-auto prose prose-invert prose-lg">
+      <h1>{frontmatter.title}</h1>
+      <slot />
+    </article>
+  </main>
+</Layout>

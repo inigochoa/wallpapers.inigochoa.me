@@ -1,11 +1,102 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import Footer from '../components/Footer.astro'
+import Gallery from '../components/Wallpaper/Gallery.astro'
+import Main from '../components/Wallpaper/Main.astro'
+import getWallpapers from '../data/wallpapers'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const wallpapers = await getWallpapers()
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Index">
+  <div class="h-svh relative w-svw">
+    <Main wallpaper={wallpapers[0]} />
+    <Gallery wallpapers={wallpapers} />
+    <Footer />
+  </div>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gallery')!
+    const mainAuthor = document.getElementById('main-author')!
+    const mainImage = document.getElementById('main-image')!
+    const mainLink = document.getElementById('main-link')!
+    const mainName = document.getElementById('main-name')!
+    const thumbnails = document.querySelectorAll('.thumbnail-image')
+
+    const preloadedImages = {};
+
+    let startX;
+    let scrollLeft;
+
+    const scrollStart = (e: TouchEvent) => {
+      startX = e.touches[0].pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    }
+    const scrollMove = (e: TouchEvent) => {
+      if (!startX) return;
+      const x = e.touches[0].pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 2; // Velocidad de desplazamiento
+      gallery.scrollLeft = scrollLeft - walk;
+    }
+    const scrollEnd = () => {
+      startX = null;
+    }
+    const changeMainImage = (src: string, alt: string, index, author: string, name: string) => {
+      mainImage.src = src;
+      mainImage.alt = alt;
+
+      mainAuthor.innerHTML = author
+      mainLink.setAttribute('href', src)
+      mainName.innerHTML = name
+
+      // Actualizar clase activa en las miniaturas
+      thumbnails.forEach(thumb => thumb.classList.remove('active'))
+      thumbnails[index].classList.add('active')
+    }
+    const wheel = (e: WheelEvent) => {
+      e.preventDefault()
+
+      // Determinar la cantidad a desplazar
+      // Multiplicamos por un factor para ajustar la velocidad del scroll
+      const scrollFactor = 2;
+
+      // Si se presiona la tecla Shift, normalmente el navegador hace scroll horizontal
+      // de lo contrario, usamos deltaY para el scroll horizontal
+      const scrollAmount = e.deltaY * scrollFactor;
+
+      // Realizar el scroll horizontal
+      gallery.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth' // Para un scroll suave
+      });
+    }
+
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('mouseenter', () => {
+        const src = thumbnail.getAttribute('data-src')
+        if (src && !preloadedImages[src]) {
+          const img = new Image()
+          img.src = src
+          preloadedImages[src] = true
+        }
+      })
+
+      thumbnail.addEventListener('click', () => {
+        const alt = thumbnail.getAttribute('data-alt')!
+        const author = thumbnail.getAttribute('data-author')!
+        const name = thumbnail.getAttribute('data-name')!
+        const src = thumbnail.getAttribute('data-src')!
+        const index = parseInt(thumbnail.getAttribute('data-index')!)
+
+        changeMainImage(src, alt, index, author, name)
+      })
+    })
+
+    gallery.addEventListener('touchstart', scrollStart, { passive: true })
+    gallery.addEventListener('touchmove', scrollMove, { passive: true })
+    gallery.addEventListener('touchend', scrollEnd, { passive: true })
+    gallery.addEventListener('wheel', wheel, { passive: false })
+  })
+</script>

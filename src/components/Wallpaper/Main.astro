@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+import Camera from '../../assets/camera.svg'
+import Download from '../../assets/download.svg'
+
+const { wallpaper } = Astro.props
+---
+
+<div class="absolute backdrop-blur-sm bg-primary/40 flex font-light items-center left-4 px-3 py-2 rounded-lg text-white text-xs top-4">
+  <Camera />
+  <span>
+    <span
+      class="font-semibold uppercase"
+      id="main-name"
+    >{wallpaper.getName()}</span> by <span
+      class="font-semibold"
+      id="main-author"
+    >{wallpaper.author}</span>
+  </span>
+</div>
+
+<Image
+  alt={wallpaper.getAlt()}
+  class="h-full inset-0 object-cover w-full"
+  height={1920}
+  id="main-image"
+  src={wallpaper.getURL()}
+  width={1080}
+/>
+
+<a
+  class="absolute bg-primary/40 p-2.5 right-4 rounded-full text-white top-4 hover:bg-primary/70"
+  download
+  href={wallpaper.getURL()}
+  id="main-link"
+  target="_blank"
+  title={wallpaper.getDownload()}
+>
+  <Download />
+</a>
